@@ -7,7 +7,10 @@ axios.interceptors.response.use(data => {
         Message.error({message: data.data.msg})
         return;
     }
-    return data.status;
+    if (data.data.msg) {
+        Message.success({message: data.data.msg})
+    }
+    return data.data;
 }, error => {
     if (error.response.status == 504 || error.response.status == 404) {
         Message.error({message: "服务器被吃了"})

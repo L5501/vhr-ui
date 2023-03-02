@@ -39,7 +39,20 @@ export const formatRoutes=(routes)=>{
             children: children,
             // 动态加载component
             component(resolve){
-                require(['../views/'+component+'.vue'],resolve);
+                if (component.startsWith('Emp')){
+                    require(['../views/emp/'+component+'.vue'],resolve);
+                }else if (component.startsWith('Per')){
+                    require(['../views/per/'+component+'.vue'],resolve);
+                }else if (component.startsWith('sal')){
+                    require(['../views/sal/'+component+'.vue'],resolve);
+                }else if (component.startsWith('sta')){
+                    require(['../views/sta/'+component+'.vue'],resolve);
+                }else if (component.startsWith('sys')){
+                    require(['../views/sys/'+component+'.vue'],resolve);
+                }else {
+                    require(['../views/'+component+'.vue'],resolve);
+                }
+
             }
         }
         fmRoutes.push(fmRoute)

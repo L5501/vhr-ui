@@ -16,7 +16,7 @@ export const initMenu=(router,store)=>{
 
 // 变量批量定义
 export const formatRoutes=(routes)=>{
-    let  fmRoutes = [];
+    let fmRoutes = [];
     routes.forEach(router=>{
         let {
             path,
